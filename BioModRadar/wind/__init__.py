@@ -1,4 +1,3 @@
-from .grid import *
 from .dealias import *
 from .vad import *
 from .constraint_gfs import *

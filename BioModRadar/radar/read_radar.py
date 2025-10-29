@@ -54,8 +54,17 @@ def read_radar_data(file_path, sweeps,
     return radar
 
 def _reduce_sweeps_rwanda_odim_hdf5(radar):
-    sweep_start = radar.sweep_start_ray_index['data']
-    sweep_end = radar.sweep_end_ray_index['data']
+    keep = np.arange(radar.nsweeps - 3)
+    radar = radar.extract_sweeps(sweeps=keep)
+    fields = ['DBZH', 'RHOHV', 'PHIDP', 'ZDR',
+              'VRADH', 'WRADH', 'KDP']
+    # fields = list(radar.fields.keys())
+    radar = pyart.util.subset_radar(
+        radar,
+        field_names=fields,
+        ele_min=0.5,
+        ele_max=32.
+    )
     return radar
 
 def _reduce_sweeps_nexrad_level2(radar):
