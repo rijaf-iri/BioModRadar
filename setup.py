@@ -8,8 +8,8 @@ def read(fname):
     except IOError:
         return ''
 
-# requirements = read("requirements.txt").splitlines()
-# long_description = read("README.md")
+requirements = read('requirements.txt').splitlines()
+long_description = read('README.md')
 
 setup(
     name='BioModRadar',
@@ -17,14 +17,12 @@ setup(
 
     author='Rija Faniriantsoa',
     author_email='rijaf@iri.columbia.edu',
-    description='Biological and environmental applications of weather radar. Data Processing and Model fitting',
+    description='Radar data processing and biological echos model fitting.',
     url='https://github.com/rijaf-iri/BioModRadar',
-    long_description='Radar data processing and biological echos model fitting',
-    long_description_content_type='text/plain',
-
-    # long_description=long_description,
-    # long_description_content_type="text/markdown",
-
+    # long_description='Radar data processing and biological echos model fitting.',
+    # long_description_content_type='text/plain',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=find_packages(),
     # packages=['BioModRadar'],
 
@@ -34,4 +32,5 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.12',
+    install_requires=requirements,
 )

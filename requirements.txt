@@ -14,7 +14,7 @@ s3fs
 pandas
 geopandas
 pint
-gdal==3.9.2
+gdal==3.8.4
 scikit-learn
 scikit-image
 scikit-fuzzy
