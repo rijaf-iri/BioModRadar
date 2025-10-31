@@ -37,6 +37,9 @@ def read_radar_data(file_path, sweeps,
     if not isinstance(sweeps, (list, np.ndarray)):
         sweeps = [sweeps]
 
+    if len(sweeps) > radar.nsweeps:
+        sweeps = np.arange(radar.nsweeps)
+
     radar = radar.extract_sweeps(sweeps)
     radar_fields = list(radar.fields)
     if fields_dict is not None:

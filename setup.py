@@ -19,12 +19,9 @@ setup(
     author_email='rijaf@iri.columbia.edu',
     description='Radar data processing and biological echos model fitting.',
     url='https://github.com/rijaf-iri/BioModRadar',
-    # long_description='Radar data processing and biological echos model fitting.',
-    # long_description_content_type='text/plain',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
-    # packages=['BioModRadar'],
 
     classifiers=[
         'Programming Language :: Python :: 3',

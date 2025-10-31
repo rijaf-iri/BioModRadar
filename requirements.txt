@@ -29,5 +29,4 @@ wradlib
 arm_pyart
 metpy
 pydda
-rpy2
 getgfs
