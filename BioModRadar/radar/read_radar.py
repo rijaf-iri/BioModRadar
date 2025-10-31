@@ -2,7 +2,7 @@ import numpy as np
 from scipy.interpolate import NearestNDInterpolator
 import pyart
 
-def read_radar_data(file_path, sweeps,
+def read_radar_data(file_path, sweeps=None,
                     volume_type='cfradial',
                     fields_dict=None):
     try:
@@ -34,10 +34,12 @@ def read_radar_data(file_path, sweeps,
         print(f'Enable to read: {file_path}')
         return None
 
-    if not isinstance(sweeps, (list, np.ndarray)):
-        sweeps = [sweeps]
-
-    if len(sweeps) > radar.nsweeps:
+    if sweeps is not None:
+        if not isinstance(sweeps, (list, np.ndarray)):
+            sweeps = [sweeps]
+        if len(sweeps) > radar.nsweeps:
+            sweeps = np.arange(radar.nsweeps)
+    else:
         sweeps = np.arange(radar.nsweeps)
 
     radar = radar.extract_sweeps(sweeps)
